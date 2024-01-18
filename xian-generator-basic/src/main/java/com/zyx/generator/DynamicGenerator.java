@@ -38,7 +38,7 @@ public class DynamicGenerator {
      * @throws IOException       I/O异常
      * @throws TemplateException 模板异常
      */
-    public static void doGenerate(String inputPath, String outputPath, Object model) throws IOException, TemplateException {
+    static void doGenerate(String inputPath, String outputPath, Object model) throws IOException, TemplateException {
         Configuration configuration = new Configuration(Configuration.VERSION_2_3_32);
 
         File parentFile = new File(inputPath).getParentFile();
