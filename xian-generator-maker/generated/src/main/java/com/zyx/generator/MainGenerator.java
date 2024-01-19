@@ -1,6 +1,5 @@
 package com.zyx.generator;
 
-import com.zyx.model.MainTemplateConfig;
 import freemarker.template.TemplateException;
 
 import java.io.File;
@@ -15,16 +14,6 @@ import java.io.IOException;
  */
 public class MainGenerator {
 
-    static String myPath = "src/main/resources/template/MainTemplate.java.ftl";
-
-    public static void main(String[] args) throws TemplateException, IOException {
-        MainTemplateConfig mainTemplateConfig = new MainTemplateConfig();
-        mainTemplateConfig.setAuthor("zyx");
-        mainTemplateConfig.setLoop(false);
-        mainTemplateConfig.setOutputText("输出结果");
-        doGenerate(mainTemplateConfig);
-    }
-
     /**
      * 生成
      *
@@ -34,8 +23,8 @@ public class MainGenerator {
      */
     public static void doGenerate(Object model) throws TemplateException, IOException {
 
-        String inputRootPath = "D:\\IdeaProjects\\xian-generator\\xian-generator-demo-projects\\acm-template-pro";
-        String outputRootPath = "D:\\IdeaProjects\\xian-generator";
+        String inputRootPath = "D:/IdeaProjects/xian-generator/xian-generator-demo-projects/acm-template-pro";
+        String outputRootPath = "generated";
 
         String inputPath;
         String outputPath;
@@ -46,13 +35,12 @@ public class MainGenerator {
 
         inputPath = new File(inputRootPath,".gitignore").getAbsolutePath();
         outputPath = new File(outputRootPath,".gitignore").getAbsolutePath();
-
-        StaticGenerator.copyFilesByRecursive(inputPath,outputPath);
+        StaticGenerator.copyFilesByHutool(inputPath,outputPath);
 
         inputPath = new File(inputRootPath,"README.md").getAbsolutePath();
-        outputPath = new File(inputRootPath,"README.md").getAbsolutePath();
-
+        outputPath = new File(outputRootPath,"README.md").getAbsolutePath();
         StaticGenerator.copyFilesByHutool(inputPath,outputPath);
+
 
     }
 }
