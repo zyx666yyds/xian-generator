@@ -12,8 +12,8 @@ public class JarGenerator {
     public static void doGenerate(String projectDir) throws IOException, InterruptedException {
 
         String winMavenCommand = "mvn.cmd clean package -DskipTest=true";
-        String mavenCommand = "mvn clean package -DskipTest=true";
-        String otherMavenCommand = winMavenCommand;
+        String  otherMavenCommand= "mvn clean package -DskipTest=true";
+        String  mavenCommand= winMavenCommand;
 
         ProcessBuilder processBuilder = new ProcessBuilder(mavenCommand.split(" "));
         processBuilder.directory(new File(projectDir));
@@ -33,6 +33,6 @@ public class JarGenerator {
     }
 
     public static void main(String[] args) throws IOException, InterruptedException {
-        doGenerate("D:\\IdeaProjects\\xian-generator\\xian-generator-basic");
+        doGenerate("D:\\IdeaProjects\\xian-generator\\xian-generator-maker\\generated");
     }
 }

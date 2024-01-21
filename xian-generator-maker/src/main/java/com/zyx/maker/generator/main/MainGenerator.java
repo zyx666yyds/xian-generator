@@ -1,8 +1,10 @@
-package com.zyx.maker.generator;
+package com.zyx.maker.generator.main;
 
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.io.resource.ClassPathResource;
 import cn.hutool.core.util.StrUtil;
+import com.zyx.maker.generator.JarGenerator;
+import com.zyx.maker.generator.ScriptGenerator;
 import com.zyx.maker.generator.file.DynamicFileGenerator;
 import com.zyx.maker.meta.Meta;
 import com.zyx.maker.meta.MetaManager;
@@ -10,7 +12,6 @@ import freemarker.template.TemplateException;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.List;
 
 /**
  * @author zyx
@@ -23,11 +24,16 @@ public class MainGenerator {
         System.out.println(metaObject);
 
         String projectPath = System.getProperty("user.dir");
-        String outputPath = projectPath + File.separator + "generated";
+        String outputPath = projectPath + File.separator + "generated" + File.separator + metaObject.getName();
 
         if (!FileUtil.exist(outputPath)) {
             FileUtil.mkdir(outputPath);
         }
+
+        //复制原始模板文件路径复制到生成的代码包中
+        String sourceRootPath = metaObject.getFileConfig().getSourceRootPath();
+        String sourceCopyDestPath = outputPath + File.separator + ".source";
+        FileUtil.copy(sourceRootPath,sourceCopyDestPath,false);
 
         //读取resources目录
         ClassPathResource classPathResource = new ClassPathResource("");
@@ -89,11 +95,16 @@ public class MainGenerator {
         DynamicFileGenerator.doGenerate(inputFilePath, outputFilePath, metaObject);
 
         //pom.xml
-        inputFilePath = inputResourcePath + File.separator + "template/java/pom.xml.ftl";
-        outputFilePath = outputBaseJavaPackagePath + File.separator + "pom.xml";
+        inputFilePath = inputResourcePath + File.separator + "template/pom.xml.ftl";
+        outputFilePath = outputPath + File.separator + "pom.xml";
         DynamicFileGenerator.doGenerate(inputFilePath, outputFilePath, metaObject);
 
-//        JarGenerator.doGenerate(outputPath);
+        //README.md
+        inputFilePath = inputResourcePath + File.separator + "template/README.md.ftl";
+        outputFilePath = outputPath + File.separator + "README.md";
+        DynamicFileGenerator.doGenerate(inputFilePath, outputFilePath, metaObject);
+
+        JarGenerator.doGenerate(outputPath);
 
         String shellOutputFilePath = outputPath + File.separator + "generator";
         String jarName = String.format("%s-%s-jar-with-dependencies.jar", metaObject.getName(), metaObject.getVersion());

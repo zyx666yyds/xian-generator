@@ -25,8 +25,9 @@ public class ScriptGenerator {
         stringBuffer.append(String.format("java -jar %s \"$@\"", jarPath)).append("\n");
         FileUtil.writeBytes(stringBuffer.toString().getBytes(StandardCharsets.UTF_8), outputPath);
         //添加可执行权限
-        Set<PosixFilePermission> permissions = PosixFilePermissions.fromString("rwxrwxrwx");
+
         try {
+            Set<PosixFilePermission> permissions = PosixFilePermissions.fromString("rwxrwxrwx");
             Files.setPosixFilePermissions(Paths.get(outputPath), permissions);
         } catch (IOException ignored) {
 
