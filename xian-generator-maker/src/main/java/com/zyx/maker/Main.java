@@ -2,6 +2,10 @@ package com.zyx.maker;
 
 
 import com.zyx.maker.cli.CommandExecutor;
+import com.zyx.maker.generator.main.MainGenerator;
+import freemarker.template.TemplateException;
+
+import java.io.IOException;
 
 /**
  * @author zyx
@@ -9,11 +13,8 @@ import com.zyx.maker.cli.CommandExecutor;
  * @date 2024/1/18 018 15:52
  */
 public class Main {
-    public static void main(String[] args) {
-        args = new String[]{"generate", "-l", "-ConfigCommand.java.ftl", "-o"};
-//        args = new String[]{"config"};
-//        args = new String[]{"list"};
-        CommandExecutor commandExecutor = new CommandExecutor();
-        commandExecutor.doExecute(args);
+    public static void main(String[] args) throws TemplateException, IOException, InterruptedException {
+        MainGenerator mainGenerator = new MainGenerator();
+        mainGenerator.doGenerate();
     }
 }
