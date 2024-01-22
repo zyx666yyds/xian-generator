@@ -1,7 +1,7 @@
-package com.zyx.maker;
+package com.zyx;
 
 
-import com.zyx.maker.cli.CommandExecutor;
+import com.zyx.cli.CommandExecutor;
 
 /**
  * @author zyx

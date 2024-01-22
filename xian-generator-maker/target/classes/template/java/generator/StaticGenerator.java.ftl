@@ -1,4 +1,4 @@
-package ${basePackage}.generator.file;
+package ${basePackage}.generator;
 
 import cn.hutool.core.io.FileUtil;
 
@@ -9,7 +9,7 @@ import cn.hutool.core.io.FileUtil;
  * @version 1.0
  * @date 2024/1/17 017 15:33
  */
-public class StaticFileGenerator {
+public class StaticGenerator {
 
     /**
      * 使用Hutool工具类复制文件

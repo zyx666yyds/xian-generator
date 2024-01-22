@@ -2,7 +2,7 @@ package com.zyx.cli.command;
 
 import cn.hutool.core.util.ReflectUtil;
 
-import com.zyx.maker.model.DataModel;
+import com.zyx.model.DataModel;
 import picocli.CommandLine.Command;
 
 import java.lang.reflect.Field;

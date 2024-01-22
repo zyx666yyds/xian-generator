@@ -1,7 +1,6 @@
 package com.zyx.maker;
 
 
-import com.zyx.maker.cli.CommandExecutor;
 import com.zyx.maker.generator.main.MainGenerator;
 import freemarker.template.TemplateException;
 

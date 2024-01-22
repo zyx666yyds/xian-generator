@@ -1,0 +1,9 @@
+com\zyx\cli\command\ConfigCommand.class
+com\zyx\generator\DynamicGenerator.class
+com\zyx\model\DataModel.class
+com\zyx\generator\MainGenerator.class
+com\zyx\cli\command\ListCommand.class
+com\zyx\cli\command\GenerateCommand.class
+com\zyx\generator\StaticGenerator.class
+com\zyx\Main.class
+com\zyx\cli\CommandExecutor.class

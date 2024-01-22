@@ -1,7 +1,7 @@
-package ${basePackage}.maker;
+package ${basePackage};
 
 
-import ${basePackage}.maker.cli.CommandExecutor;
+import ${basePackage}.cli.CommandExecutor;
 
 /**
  * @author zyx
