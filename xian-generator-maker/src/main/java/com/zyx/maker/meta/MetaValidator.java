@@ -11,6 +11,7 @@ import com.zyx.maker.meta.enums.ModelTypeEnum;
 import java.io.File;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author zyx
@@ -26,9 +27,6 @@ public class MetaValidator {
         //modelConfig校验和默认值
         validAndFillModelConfig(meta);
 
-
-
-
     }
 
     private static void validAndFillModelConfig(Meta meta) {
@@ -41,6 +39,19 @@ public class MetaValidator {
             return;
         }
         for (Meta.ModelConfig.ModelInfo model : models) {
+
+            //group不校验
+            String groupKey = model.getGroupKey();
+            if (StrUtil.isNotEmpty(groupKey)){
+                //生成中间参数
+                List<Meta.ModelConfig.ModelInfo> subModelInfoList = model.getModels();
+                String allArgsStr = subModelInfoList.stream()
+                        .map(subModelInfo -> String.format("\"--%s\"", subModelInfo.getFieldName()))
+                        .collect(Collectors.joining(","));
+                model.setAllArgsStr(allArgsStr);
+                continue;
+            }
+
             String fieldName = model.getFieldName();
             if (StrUtil.isBlank(fieldName)) {
                 throw new MetaException("fieldName 不能为空");
@@ -85,6 +96,10 @@ public class MetaValidator {
             return;
         }
         for (Meta.FileConfig.FileInfo file : files) {
+            String type1 = file.getType();
+            if (FileTypeEnum.GROUP.getValue().equals(type1)){
+                continue;
+            }
             //inputPath 必填
             String inputPath = file.getInputPath();
             if (StrUtil.isBlank(inputPath)) {
@@ -96,7 +111,7 @@ public class MetaValidator {
                 file.setOutputPath(inputPath);
             }
 
-            String type1 = file.getType();
+
             if (StrUtil.isBlank(type1)) {
                 //无文件后缀
                 if (StrUtil.isBlank(FileUtil.getSuffix(inputPath))) {

@@ -8,7 +8,8 @@ package com.zyx.maker.meta.enums;
  */
 public enum FileTypeEnum {
     DIR("dir", "目录"),
-    FILE("file", "文件");
+    FILE("file", "文件"),
+    GROUP("group", "文件组");
 
     private final String value;
     private final String text;

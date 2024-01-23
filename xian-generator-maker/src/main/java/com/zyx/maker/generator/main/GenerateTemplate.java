@@ -93,6 +93,7 @@ public abstract class GenerateTemplate {
         String inputFilePath;
         String outputFilePath;
 
+        //model.DataModel
         inputFilePath = inputResourcePath + File.separator + "template/java/model/DataModel.java.ftl";
         outputFilePath = outputBaseJavaPackagePath + File.separator + "model/DataModel.java";
         DynamicFileGenerator.doGenerate(inputFilePath, outputFilePath, metaObject);
