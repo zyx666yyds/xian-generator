@@ -1,6 +1,5 @@
 package com.zyx.maker.generator.file;
 
-import com.zyx.maker.model.DataModel;
 import freemarker.template.TemplateException;
 
 import java.io.File;
@@ -16,14 +15,6 @@ import java.io.IOException;
 public class FileGenerator {
 
     static String myPath = "src/main/resources/template/MainGenerator.java.ftl";
-
-    public static void main(String[] args) throws TemplateException, IOException {
-        DataModel mainTemplateConfig = new DataModel();
-        mainTemplateConfig.setAuthor("zyx");
-        mainTemplateConfig.setLoop(false);
-        mainTemplateConfig.setOutputText("输出结果");
-        doGenerate(mainTemplateConfig);
-    }
 
     /**
      * 生成

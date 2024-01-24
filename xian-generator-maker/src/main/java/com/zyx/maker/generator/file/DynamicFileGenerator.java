@@ -1,7 +1,6 @@
 package com.zyx.maker.generator.file;
 
 import cn.hutool.core.io.FileUtil;
-import com.zyx.maker.model.DataModel;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
