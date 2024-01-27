@@ -1,0 +1,21 @@
+{
+  "id": 1,
+  "fileConfig": {
+    "files": [
+      {
+        "path": ""
+      }
+    ]
+  },
+  "modelConfig": {
+    "models": [
+      {
+        "filedName": "basePackage",
+        "type": "string",
+        "description": "基础包名",
+        "defaultValue": "com.zyx",
+        "replaceText": "com.zyx"
+      }
+    ]
+  }
+}
