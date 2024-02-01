@@ -10,8 +10,8 @@
   "modelConfig": {
     "models": [
       {
-        "filedName": "basePackage",
-        "type": "string",
+        "fieldName": "basePackage",
+        "type": "String",
         "description": "基础包名",
         "defaultValue": "com.zyx",
         "replaceText": "com.zyx"
