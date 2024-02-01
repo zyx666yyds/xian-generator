@@ -140,12 +140,6 @@
         "generateType": "dynamic"
       },
       {
-        "inputPath": "src/test/.DS_Store",
-        "outputPath": "src/test/.DS_Store",
-        "type": "file",
-        "generateType": "static"
-      },
-      {
         "inputPath": "src/main/java/com/zyx/springbootinit/common/DeleteRequest.java.ftl",
         "outputPath": "src/main/java/com/zyx/springbootinit/common/DeleteRequest.java",
         "type": "file",
@@ -174,18 +168,6 @@
         "outputPath": "src/main/java/com/zyx/springbootinit/MainApplication.java",
         "type": "file",
         "generateType": "dynamic"
-      },
-      {
-        "inputPath": ".DS_Store",
-        "outputPath": ".DS_Store",
-        "type": "file",
-        "generateType": "static"
-      },
-      {
-        "inputPath": "src/.DS_Store",
-        "outputPath": "src/.DS_Store",
-        "type": "file",
-        "generateType": "static"
       },
       {
         "inputPath": "src/main/java/com/zyx/springbootinit/model/entity/User.java.ftl",
@@ -218,12 +200,7 @@
         "type": "file",
         "generateType": "dynamic"
       },
-      {
-        "inputPath": "src/main/java/com/zyx/springbootinit/service/.DS_Store",
-        "outputPath": "src/main/java/com/zyx/springbootinit/service/.DS_Store",
-        "type": "file",
-        "generateType": "static"
-      },
+
       {
         "inputPath": "src/main/java/com/zyx/springbootinit/controller/UserController.java.ftl",
         "outputPath": "src/main/java/com/zyx/springbootinit/controller/UserController.java",
@@ -299,7 +276,7 @@
             "fieldName": "password",
             "type": "String",
             "description": "密码",
-            "defaultValue": "zyx"
+            "defaultValue": "123456"
           },
           {
             "fieldName": "url",
